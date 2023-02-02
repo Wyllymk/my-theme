@@ -27,10 +27,27 @@ get_header();?>
             <?php the_excerpt();?>
         </div>
     </div>
-    <?php endwhile; else:?> <!--End while loop -->
-           <p> <?php _e('No Posts To Display');?> </p>
+    <?php endwhile; ?><!--End while loop -->
+        <!--Pagination Start -->
+            <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                <a class="page-link" href="<?php previous_posts_link('Previous');?>" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="<?php next_posts_link('Next');?>">Next</a>
+                </li>
+            </ul>
+            </nav>
+        <!--Pagination Ends -->
+        <?php else:?> 
+        <p> <?php _e('No Posts To Display');?> </p>
+        
      <?php endif;?> <!--End if statement -->
-    <?wp_reset_query();?>
+    
 </article>
 
 

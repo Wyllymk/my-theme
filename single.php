@@ -11,13 +11,31 @@
     </div>
     <div class="row">
         <div class="col">
-            <?php the_post_thumbnail('');?>
+            <?php if(has_post_thumbnail()){
+                the_post_thumbnail('');
+            }?>
         </div>
     </div>
     <div class="row">
         <?php the_content();?>
     </div>
-    <?php endwhile; else:?> <!--End while loop -->
+    <?php endwhile; ?>
+            <!--Pagination Start -->
+            <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                <a class="page-link" href="<?php previous_post_link('Previous');?>" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="<?php next_post_link();?>">Next</a>
+                </li>
+            </ul>
+            </nav>
+        <!--Pagination Ends -->
+            <?php else:?> <!--End while loop -->
            <p> <?php _e('No Posts To Display');?> </p>
      <?php endif;?> <!--End if statement -->
      <!-- // If comments are open or we have at least one comment, load up the comment template. -->
@@ -31,4 +49,5 @@
         ?>
     </div>
 </article>
+
 <?php get_footer();?>
