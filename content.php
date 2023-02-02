@@ -9,7 +9,7 @@
     ?>    
     <div class="jumbotron">
         <h2 class="text-success"><a class="text-decoration-none"href="<?php the_permalink();?>"><?php the_title();?></a></h2>
-        <small><?php the_time('F j, Y');?> at <?php the_time('g:i a');?> in <?php the_category();?></small>
+        <small><?php the_time('F j, Y');?> at <?php the_time('g:i a');?></small>
         
     </div>
     <div class="row">
