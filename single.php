@@ -5,9 +5,9 @@
                 the_post();
     ?>    
     <div class="jumbotron">
-        <h2 class="text-center bg-secondary"><a class="text-decoration-none text-warning"href="<?php the_permalink();?>"><?php the_title();?></a></h2>
+        <h2 class="text-center bg-secondary"><a class="text-decoration-none text-warning"href="<?php esc_url(get_permalink());?>"><?php the_title();?></a></h2>
         <small class=""><?php the_time('F j, Y');?> at <?php the_time('g:i a');?> in <?php the_category();?></small>
-        
+        <p><?php the_tags();?> <?php edit_post_link()?></p>
     </div>
     <div class="row">
         <div class="col">
@@ -22,15 +22,13 @@
     <?php endwhile; ?>
             <!--Pagination Start -->
             <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
+            <ul class="pagination justify-content-around">
                 <li class="page-item">
-                <a class="page-link" href="<?php previous_post_link('Previous');?>" tabindex="-1">Previous</a>
+                    <div class="page-link"><?php previous_post_link();?></div>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                
                 <li class="page-item">
-                <a class="page-link" href="<?php next_post_link();?>">Next</a>
+                    <div class="page-link"><?php next_post_link();?></div>
                 </li>
             </ul>
             </nav>
@@ -44,7 +42,7 @@
             if(comments_open() || get_comments_number()){
                 comments_template(); 
             }else{
-                echo 'Comments are closed!';
+                echo '<h5 class="text-center">Sorry, Comments are closed!</h5>';
             }
         ?>
     </div>

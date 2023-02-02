@@ -1,4 +1,5 @@
 <?php
+require get_template_directory(). '/inc/function-admin.php';
 // Enqueue Styles and scripts
 function custom_enqueue_scripts(){
     wp_enqueue_style('customstyle', get_template_directory_uri(). '/assets/css/custom.css', array(), '1.0.0', 'all'); //styles hook
@@ -27,14 +28,8 @@ add_theme_support('post-thumbnails');
 
 add_theme_support( 'title-tag' );
 
-add_filter( 'wp_title', 'wpdocs_hack_wp_title_for_home' );
+add_theme_support('custom-header');
 
-/**
- * Customize the title for the home page, if one is not set.
- */
-function wpdocs_hack_wp_title_for_home( $title ){
-  if ( empty( $title ) && ( is_home() || is_front_page() ) ) {
-    $title = __( 'Home', 'textdomain' );
-  }
-  return $title;
-}
+add_theme_support('custom-background');
+
+add_theme_support('post-formats', array('aside', 'image', 'video'));

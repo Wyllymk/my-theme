@@ -15,7 +15,7 @@ get_header();?>
                 the_post();
     ?>    
     <div class="jumbotron">
-        <h2 class="text-success"><a class="text-decoration-none"href="<?php the_permalink();?>"><?php the_title();?></a></h2>
+        <h2 class=""><a class="text-success text-decoration-none"href="<?php the_permalink();?>"><?php the_title();?></a></h2>
         <small><?php the_time('F j, Y');?> at <?php the_time('g:i a');?> in <?php the_category();?></small>
         
     </div>
@@ -24,21 +24,19 @@ get_header();?>
             <?php the_post_thumbnail('medium');?>
         </div>
         <div class="col">
-            <?php the_excerpt();?>
+            <p class="lead"><?php the_excerpt();?></p>
         </div>
     </div>
     <?php endwhile; ?><!--End while loop -->
         <!--Pagination Start -->
-            <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
+            <nav aria-label="Page navigation ">
+            <ul class="pagination justify-content-around mt-3">
                 <li class="page-item">
-                <a class="page-link" href="<?php previous_posts_link('Previous');?>" tabindex="-1">Previous</a>
+                    <div class="page-link"><?php previous_posts_link('« Newer Posts');?></div>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                
                 <li class="page-item">
-                <a class="page-link" href="<?php next_posts_link('Next');?>">Next</a>
+                    <div class=""><?php next_posts_link('Older Posts »');?></div>               
                 </li>
             </ul>
             </nav>
