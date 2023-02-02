@@ -4,10 +4,12 @@
  */
 function wpdocs_hack_wp_title_for_home( $title ){
   if ( empty( $title ) && ( is_home() || is_front_page() ) ) {
-    $title = __( 'Home', 'textdomain' );
+    $title = __( 'Home', 'mytheme' );
   }
   return $title;
 }
+
+add_filter( 'wp_title', 'wpdocs_hack_wp_title_for_home' );
 
 if ( ! file_exists( get_template_directory() . '/class-wp-bootstrap-navwalker.php' ) ) {
   // File does not exist... return an error.

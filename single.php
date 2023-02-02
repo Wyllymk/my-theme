@@ -41,7 +41,7 @@
     <div id="comments" class="bg-light">
         <?php 
             if(comments_open() || get_comments_number()){
-                comments_template(); 
+                comments_template('', true); 
             }else{
                 echo '<h5 class="text-center">Sorry, Comments are closed!</h5>';
             }

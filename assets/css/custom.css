@@ -1,0 +1,8 @@
+
+.navbar-nav > .active > a {
+    color: rgb(255, 255, 255);
+    background-color: rgb(35, 36, 35);    
+  }
+  .nav-item > a:hover {
+    color: rgb(21, 255, 0);
+  }

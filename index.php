@@ -13,9 +13,11 @@ $args = array(
 query_posts($args);
 ?>
 
-<h1 class="bg-dark text-danger text-center">
-    <?php  wp_title(''); ?>
-</h1>
+<?php if ( is_home() ) { ?>
+	<h1 class="page-title bg-dark text-danger text-center">
+		<?php echo get_the_title( get_option('page_for_posts', true) ); ?>
+	</h1>
+<?php } ?>
 <article class="container" id="post-<?php the_ID();?>" <?php post_class();?>>
     <?php if(have_posts()):
              while(have_posts()):
@@ -36,17 +38,10 @@ query_posts($args);
     </div>
     <?php endwhile; ?><!--End while loop -->
         <!--Pagination Start -->
-            <nav aria-label="Page navigation ">
-            <ul class="pagination justify-content-around mt-3">
-                <li class="page-item">
-                    <div class=""><?php previous_posts_link('« Newer Posts');?></div>
-                </li>
-                
-                <li class="page-item">
-                    <div class=""><?php next_posts_link('Older Posts »');?></div>               
-                </li>
-            </ul>
-            </nav>
+        <?php
+        if ( function_exists('wp_bootstrap_pagination') ){
+            wp_bootstrap_pagination();
+        }?>
         <!--Pagination Ends -->
         <?php else:?> 
         <p> <?php _e('No Posts To Display');?> </p>
