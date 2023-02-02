@@ -1,12 +1,11 @@
 <?php get_header( );?>
-<h1 class="bg-dark text-danger text-center"><?php  wp_title(''); ?></h1>
 <article class="container" id="post-<?php the_ID();?>" <?php post_class();?>>
     <?php if(have_posts()):
              while(have_posts()):
                 the_post();
     ?>    
     <div class="jumbotron">
-        <h2 class="text-success"><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>
+        <h2 class="text-success text-center"><a href="<?php the_permalink();?>"><?php the_title();?></a></h2>
         <small><?php the_time('F j, Y');?> at <?php the_time('g:i a');?> in <?php the_category();?></small>
         
     </div>
